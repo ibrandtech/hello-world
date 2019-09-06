@@ -10,9 +10,9 @@ if ($conn->connect_error) {
 } 
 function send_mail()
 {
-  		//fetching record of manager who has status is active 
- 	    $activeMailerData=getActiveCurrentMailer();
- 	    //get record to check who had status is active previously
+  	//fetching record of manager who has status is active 
+ 	$activeMailerData=getActiveCurrentMailer();
+ 	//get record to check who had status is active previously
         $lastActiveMailerData=fetchLastActiveMailerData();
         $id=$activeMailerData['m_id'];//current active mailer id
         $mailTo=$activeMailerData['email'];
@@ -53,16 +53,14 @@ function send_mail()
   }
   function getActiveCurrentMailer()
   {
-  	 global $wpdb;
+     global $wpdb;
      $query="select * from manager_email_list where status='current'";
      $result = $conn->query($query);
-    // print_r($result);   
-     return $result->fetch_assoc();  
-     
+     return $result->fetch_assoc();       
   }
   function fetchLastActiveMailerData()
   {
-  	$conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
     global $wpdb;
     $query="select * from manager_email_list ORDER BY m_id DESC limit 1";
     $result = $conn->query($query);
