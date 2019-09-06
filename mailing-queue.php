@@ -29,11 +29,11 @@ function send_mail()
         {
 	        $to=$mailTo;
 	        $name = $postData['user_name'];
-		    $phone = $postData['user_phone'];
+		$phone = $postData['user_phone'];
 	        $email = $postData['user_email'];
 	        $user_state = $postData['user_state'];
-			$user_domain = $postData['user_domain'];
-			$user_qualification = $postData['user_qualification'];
+		$user_domain = $postData['user_domain'];
+		$user_qualification = $postData['user_qualification'];
 	        $subject = $name;
 	        $mailBody = "<html><head></head>"
 	                . "<body><p>Dear Team,</p>"
